@@ -1,66 +1,56 @@
-import Image from "next/image";
+// Home Page - Landing page with hero and projects preview
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+import ProjectCard from '../components/ProjectCard';
 import styles from "./page.module.css";
 
 export default function Home() {
+  // Sample featured projects - replace with your actual projects
+  const featuredProjects = [
+    {
+      id: 1,
+      title: 'E-Commerce Platform',
+      description: 'Full-stack online shopping platform with payment integration',
+      technologies: ['React', 'Node.js', 'MongoDB'],
+      link: '#'
+    },
+    {
+      id: 2,
+      title: 'Weather Dashboard',
+      description: 'Real-time weather application with location tracking',
+      technologies: ['JavaScript', 'API', 'CSS'],
+      link: '#'
+    }
+  ];
+
   return (
     <div className={styles.page}>
+      <Navbar />
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <Hero />
+        
+        <section className={styles.featuredProjects}>
+          <div className={styles.container}>
+            <h2>Featured Projects</h2>
+            <div className={styles.projectsGrid}>
+              {featuredProjects.map(project => (
+                <ProjectCard 
+                  key={project.id}
+                  title={project.title}
+                  description={project.description}
+                  technologies={project.technologies}
+                  link={project.link}
+                />
+              ))}
+            </div>
+            <div className={styles.viewAllProjects}>
+              <a href="/projects" className={styles.btnSecondary}>View All Projects</a>
+            </div>
+          </div>
+        </section>
       </main>
+      <Footer />
     </div>
   );
 }
