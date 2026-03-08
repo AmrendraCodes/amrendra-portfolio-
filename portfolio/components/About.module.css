@@ -1,7 +1,7 @@
 /* About Section Styles */
 .about {
   padding: 80px 0;
-  background-color: #111827;
+  background-color: #f8f9fa;
 }
 
 .container {
@@ -13,7 +13,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a1a;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -28,7 +28,7 @@
 .description {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #d1d5db;
+  color: #495057;
   margin-bottom: 24px;
 }
 
@@ -39,57 +39,24 @@
 .skillsTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #1a1a1a;
   margin-bottom: 24px;
-}
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
-}
-
-.skillCategory h4 {
-  color: #6ee7b7;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.skillCategory ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .skillCategory li {
   padding: 6px 0;
-  color: #9ca3af;
+  color: #6c757d;
   font-size: 0.95rem;
   position: relative;
   padding-left: 16px;
 }
 
-.skillCategory li::before {
-  content: "▶";
-  position: absolute;
-  left: 0;
-  color: #6ee7b7;
-  font-size: 0.7rem;
-}
-
-.highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .highlightItem {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   padding: 24px;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid #333;
+  border: 1px solid #e9ecef;
   transition: transform 0.3s ease;
 }
 
@@ -105,7 +72,7 @@
 }
 
 .highlightItem p {
-  color: #9ca3af;
+  color: #6c757d;
   font-size: 0.9rem;
   margin: 0;
 }

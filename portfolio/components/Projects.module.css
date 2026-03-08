@@ -1,7 +1,7 @@
 /* Projects Section Styles */
 .projects {
   padding: 80px 0;
-  background-color: #0f0f0f;
+  background-color: #ffffff;
 }
 
 .container {
@@ -13,7 +13,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a1a;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -25,28 +25,28 @@
 }
 
 .card {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid #e9ecef;
   transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border-color: #6ee7b7;
 }
 
 .cardHeader {
   padding: 24px 24px 16px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .cardTitle {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #1a1a1a;
   margin: 0;
 }
 
@@ -57,7 +57,7 @@
 .description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #d1d5db;
+  color: #495057;
   margin-bottom: 20px;
 }
 
