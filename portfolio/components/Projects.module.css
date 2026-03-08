@@ -1,0 +1,159 @@
+/* Projects Section Styles */
+.projects {
+  padding: 80px 0;
+  background-color: #0f0f0f;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: #6ee7b7;
+}
+
+.cardHeader {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #333;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.cardBody {
+  padding: 20px 24px 24px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.techTag {
+  background: linear-gradient(135deg, #6ee7b7 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+}
+
+.githubLink,
+.liveLink {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+}
+
+.githubLink {
+  background-color: transparent;
+  color: #6ee7b7;
+  border: 2px solid #6ee7b7;
+}
+
+.githubLink:hover {
+  background-color: #6ee7b7;
+  color: #0f0f0f;
+}
+
+.liveLink {
+  background: linear-gradient(135deg, #6ee7b7 0%, #3b82f6 100%);
+  color: #ffffff;
+  border: none;
+}
+
+.liveLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(110, 231, 183, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .cardHeader {
+    padding: 20px 20px 12px;
+  }
+  
+  .cardBody {
+    padding: 16px 20px 20px;
+  }
+  
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+  
+  .links {
+    flex-direction: column;
+  }
+  
+  .githubLink,
+  .liveLink {
+    text-align: center;
+  }
+}

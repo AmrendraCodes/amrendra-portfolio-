@@ -1,0 +1,151 @@
+/* About Section Styles */
+.about {
+  padding: 80px 0;
+  background-color: #111827;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  margin-bottom: 24px;
+}
+
+.skills {
+  margin-top: 48px;
+}
+
+.skillsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.skillCategory h4 {
+  color: #6ee7b7;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.skillCategory ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillCategory li {
+  padding: 6px 0;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 16px;
+}
+
+.skillCategory li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #6ee7b7;
+  font-size: 0.7rem;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.highlightItem {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.highlightItem:hover {
+  transform: translateY(-4px);
+}
+
+.highlightItem h3 {
+  color: #6ee7b7;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.highlightItem p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .highlights {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .highlightItem {
+    flex: 1;
+    padding: 20px 16px;
+  }
+  
+  .highlightItem h3 {
+    font-size: 1.4rem;
+  }
+}

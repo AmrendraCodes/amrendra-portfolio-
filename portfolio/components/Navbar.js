@@ -1,25 +1,26 @@
 // Navbar Component - Navigation header for all pages
 import Link from 'next/link';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="container">
-        <div className="nav-brand">
+    <nav className={styles.navbar}>
+      <div className={styles.container}>
+        <div className={styles.navBrand}>
           <Link href="/">My Portfolio</Link>
         </div>
-        <ul className="nav-menu">
-          <li className="nav-item">
-            <Link href="/" className="nav-link">Home</Link>
+        <ul className={styles.navMenu}>
+          <li className={styles.navItem}>
+            <Link href="/" className={styles.navLink}>Home</Link>
           </li>
-          <li className="nav-item">
-            <Link href="/about" className="nav-link">About</Link>
+          <li className={styles.navItem}>
+            <Link href="/about" className={styles.navLink}>About</Link>
           </li>
-          <li className="nav-item">
-            <Link href="/projects" className="nav-link">Projects</Link>
+          <li className={styles.navItem}>
+            <Link href="/projects" className={styles.navLink}>Projects</Link>
           </li>
-          <li className="nav-item">
-            <Link href="/contact" className="nav-link">Contact</Link>
+          <li className={styles.navItem}>
+            <Link href="/contact" className={styles.navLink}>Contact</Link>
           </li>
         </ul>
       </div>
