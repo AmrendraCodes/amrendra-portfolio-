@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container">
         <div className="nav-brand">
-          <Link href="/">Your Name</Link>
+          <Link href="/">My Portfolio</Link>
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
