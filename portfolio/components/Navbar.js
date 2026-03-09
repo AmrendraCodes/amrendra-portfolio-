@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className={styles.navBrand}>
-          My Portfolio 
+          My Portfolio
         </Link>
 
         {/* Desktop Links */}

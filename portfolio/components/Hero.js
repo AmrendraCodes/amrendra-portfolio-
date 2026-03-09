@@ -23,13 +23,10 @@ export default function Hero() {
         {/* ── LEFT CONTENT ── */}
         <div className={`${styles.heroLeft} ${visible ? styles.show : ''}`}>
 
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            Available for Work
-          </div>
+         
 
           <h1 className={styles.heroTitle}>
-            Hi, I'm <span className={styles.name}>John Doe</span>
+            Hi, I'm <span className={styles.name}>Amrendra Kumar</span>
           </h1>
 
           <div className={styles.roleRow}>
@@ -50,22 +47,6 @@ export default function Hero() {
             <Link href="#contact" className={styles.btnSecondary}>
               Contact Me
             </Link>
-          </div>
-
-          {/* Stats */}
-          <div className={styles.statsRow}>
-            <div className={styles.stat}>
-              <span className={styles.statNum}>3<span>+</span></span>
-              <span className={styles.statLabel}>Years Exp.</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statNum}>20<span>+</span></span>
-              <span className={styles.statLabel}>Projects</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statNum}>15<span>+</span></span>
-              <span className={styles.statLabel}>Clients</span>
-            </div>
           </div>
         </div>
 
