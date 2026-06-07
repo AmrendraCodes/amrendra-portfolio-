@@ -8,7 +8,7 @@ import styles from './Navbar.module.css';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Portfolio', href: '#projects' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -23,12 +23,12 @@ export default function Navbar() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const sections = document.querySelectorAll('section[id]');
-      
+
       sections.forEach(section => {
         const top = section.offsetTop - 120;
         const height = section.offsetHeight;
         const id = section.getAttribute('id');
-        
+
         if (scrollY >= top && scrollY < top + height) {
           setActiveSection(id);
         }

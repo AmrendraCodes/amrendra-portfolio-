@@ -58,14 +58,14 @@ export default function Projects() {
       }
     }, { threshold: 0.12 });
 
-    const el = document.getElementById('portfolio');
+    const el = document.getElementById('projects');
     if (el) observer.observe(el);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className={`${styles.portfolio} ${visible ? styles.visible : ''}`} id="portfolio">
+    <section className={`${styles.portfolio} ${visible ? styles.visible : ''}`} id="projects">
       <div className="container">
         
         <div className={styles.sectionHeader}>
