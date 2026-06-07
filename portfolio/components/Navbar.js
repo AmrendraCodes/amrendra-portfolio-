@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -6,27 +7,37 @@ import styles from './Navbar.module.css';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Project', href: '/project' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Blog', href: '#blog' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const pathname = usePathname();
 
-  // Scroll detect
+  // Scroll detect for active link
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const sections = document.querySelectorAll('section[id]');
+      
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        
+        if (scrollY >= top && scrollY < top + height) {
+          setActiveSection(id);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Route change pe menu band karo
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   // Body scroll lock jab menu open ho
   useEffect(() => {
@@ -34,66 +45,55 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  // Handle active link matching
+  const isActive = (href) => {
+    if (href === '/') return activeSection === 'home' || pathname === '/';
+    return activeSection === href.replace('#', '');
+  };
+
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.container}>
+    <nav className={styles.navbar}>
+      <div className="container">
+        <div className={styles.navInner}>
+          {/* Logo */}
+          <Link href="/" className={styles.navBrand}>
+            <span className={styles.accent}>A</span>mrendra<span className={styles.accent}>.</span>dev
+          </Link>
 
-        {/* Logo */}
-        <Link href="/" className={styles.navBrand}>
-          My Portfolio
-        </Link>
+          {/* Desktop Links */}
+          <ul className={`${styles.navMenu} ${isOpen ? styles.menuOpen : ''}`}>
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Desktop Links */}
-        <ul className={styles.navMenu}>
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <div className={styles.navRight}>
+            <Link href="#contact" className={styles.btnHire}>
+              Hire Me
+            </Link>
 
-        {/* Hamburger Button */}
-        <button
-          className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-        </button>
+            {/* Hamburger Button */}
+            <button
+              className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              <span className={styles.bar} />
+              <span className={styles.bar} />
+              <span className={styles.bar} />
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Mobile Dropdown Menu */}
-      <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileOpen : ''}`}>
-        <ul className={styles.mobileLinks}>
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                className={`${styles.mobileLink} ${pathname === link.href ? styles.active : ''}`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className={styles.overlay}
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </nav>
   );
 }

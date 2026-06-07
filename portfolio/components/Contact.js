@@ -1,115 +1,88 @@
-// Contact Section Component
+'use client';
+
+import { useEffect, useState } from 'react';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setVisible(true);
+      }
+    }, { threshold: 0.12 });
+
+    const el = document.getElementById('contact');
+    if (el) observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="contact" className={styles.contact}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Get In Touch</h2>
-        <div className={styles.content}>
-          <div className={styles.info}>
-            <h3 className={styles.infoTitle}>Let's Connect</h3>
-            <p className={styles.infoDescription}>
-              I'm always interested in hearing about new projects and opportunities. 
-              Whether you have a question or just want to say hi, feel free to reach out!
+    <section className={`${styles.contact} ${visible ? styles.visible : ''}`} id="contact">
+      <div className="container">
+        
+        <div className={styles.contactInner}>
+          {/* ===== LEFT INFO ===== */}
+          <div className={styles.contactInfo}>
+            <span className={styles.sectionTag}>HAVE A QUESTION?</span>
+            <h2 className={styles.sectionTitle}>Contact Me Now</h2>
+            
+            <p className={styles.desc}>
+              Have a project in mind or just want to say hello? Feel free to reach out — I'd love to hear from you and discuss how we can work together.
             </p>
             
-            <div className={styles.contactDetails}>
-              <div className={styles.contactItem}>
-                <h4>Email</h4>
-                <a href="mailto:john.doe@example.com" className={styles.contactLink}>
-                  john.doe@example.com
-                </a>
-              </div>
-              
-              <div className={styles.contactItem}>
-                <h4>Phone</h4>
-                <a href="tel:+1234567890" className={styles.contactLink}>
-                  +123 456 7890
-                </a>
-              </div>
-              
-              <div className={styles.contactItem}>
-                <h4>Location</h4>
-                <p className={styles.location}>San Francisco, CA</p>
+            <div className={styles.contactDetail}>
+              <div className={styles.contactDetailIcon}>📧</div>
+              <div className={styles.contactDetailText}>
+                <strong>Email</strong>
+                amrendra@example.com
               </div>
             </div>
             
-            <div className={styles.social}>
-              <h4>Follow Me</h4>
-              <div className={styles.socialLinks}>
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={styles.socialLink}
-                >
-                  GitHub
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={styles.socialLink}
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={styles.socialLink}
-                >
-                  Twitter
-                </a>
+            <div className={styles.contactDetail}>
+              <div className={styles.contactDetailIcon}>📱</div>
+              <div className={styles.contactDetailText}>
+                <strong>Phone</strong>
+                +91 98765 43210
+              </div>
+            </div>
+            
+            <div className={styles.contactDetail}>
+              <div className={styles.contactDetailIcon}>📍</div>
+              <div className={styles.contactDetailText}>
+                <strong>Location</strong>
+                Ahmedabad, Gujarat, India
               </div>
             </div>
           </div>
-          
-          <div className={styles.form}>
-            <form className={styles.contactForm}>
+
+          {/* ===== RIGHT FORM ===== */}
+          <div className={styles.contactFormWrap}>
+            <div className={styles.formRow}>
               <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.label}>Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  className={styles.input}
-                  placeholder="Your Name"
-                  required
-                />
+                <input type="text" placeholder="Your Name" />
               </div>
-              
               <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.label}>Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  className={styles.input}
-                  placeholder="your.email@example.com"
-                  required
-                />
+                <input type="email" placeholder="Your Email" />
               </div>
-              
-              <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.label}>Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  className={styles.textarea}
-                  rows="5"
-                  placeholder="Your message here..."
-                  required
-                ></textarea>
-              </div>
-              
-              <button type="submit" className={styles.submitBtn}>
-                Send Message
-              </button>
-            </form>
+            </div>
+            
+            <div className={styles.formGroup}>
+              <input type="tel" placeholder="Phone Number" />
+            </div>
+            
+            <div className={styles.formGroup}>
+              <textarea placeholder="Your Message"></textarea>
+            </div>
+            
+            <button className={styles.btnSend} type="button">
+              Send Message
+            </button>
           </div>
         </div>
+
       </div>
     </section>
   );

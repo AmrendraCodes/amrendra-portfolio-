@@ -1,69 +1,55 @@
-// About Section Component
+'use client';
+
+import { useEffect, useState } from 'react';
 import styles from './About.module.css';
 
 export default function About() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setVisible(true);
+      }
+    }, { threshold: 0.12 });
+
+    const el = document.getElementById('about');
+    if (el) observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className={styles.about}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>About Me</h2>
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <p className={styles.description}>
-              I'm a passionate full-stack developer with expertise in modern web technologies. 
-              I love turning ideas into reality through clean, efficient code and intuitive user interfaces.
-            </p>
-            <p className={styles.description}>
-              With a strong foundation in both frontend and backend development, I enjoy tackling 
-              complex problems and creating solutions that make a difference.
-            </p>
-            
-            <div className={styles.skills}>
-              <h3 className={styles.skillsTitle}>Skills & Technologies</h3>
-              <div className={styles.skillsGrid}>
-                <div className={styles.skillCategory}>
-                  <h4>Frontend</h4>
-                  <ul>
-                    <li>React</li>
-                    <li>JavaScript</li>
-                    <li>HTML/CSS</li>
-                    <li>Next.js</li>
-                  </ul>
-                </div>
-                <div className={styles.skillCategory}>
-                  <h4>Backend</h4>
-                  <ul>
-                    <li>Node.js</li>
-                    <li>Express</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                  </ul>
-                </div>
-                <div className={styles.skillCategory}>
-                  <h4>Tools</h4>
-                  <ul>
-                    <li>Git</li>
-                    <li>VS Code</li>
-                    <li>Figma</li>
-                    <li>npm/yarn</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+    <section className={`${styles.about} ${visible ? styles.visible : ''}`} id="about">
+      <div className="container">
+        <div className={styles.aboutInner}>
+          <div className={styles.aboutImg}>
+            <span className={styles.aboutImgEmoji}>👨‍💻</span>
           </div>
           
-          <div className={styles.highlights}>
-            <div className={styles.highlightItem}>
-              <h3>2+ Years</h3>
-              <p>Experience</p>
+          <div className={styles.aboutContent}>
+            <span className={styles.sectionTag}>WHO I AM?</span>
+            <h2 className={styles.sectionTitle}>I Design Digital Experiences<br />People Love</h2>
+            
+            <p>
+              I'm a passionate UI/UX Designer based in Ahmedabad, Gujarat, India with over 5 years of experience crafting intuitive and visually stunning digital products. I specialize in creating user-centered designs that drive engagement and business growth.
+            </p>
+            <p>
+              From wireframes to high-fidelity prototypes, I bring ideas to life with a keen eye for detail and a deep understanding of user behavior. My approach combines aesthetics with functionality to deliver exceptional experiences.
+            </p>
+            
+            <div className={styles.aboutChips}>
+              <span className={styles.chip}>UI/UX Design</span>
+              <span className={styles.chip}>User Research</span>
+              <span className={styles.chip}>Prototyping</span>
+              <span className={styles.chip}>Figma</span>
+              <span className={styles.chip}>Adobe XD</span>
+              <span className={styles.chip}>Web Design</span>
+              <span className={styles.chip}>Design Systems</span>
+              <span className={styles.chip}>Interaction Design</span>
             </div>
-            <div className={styles.highlightItem}>
-              <h3>10+ Projects</h3>
-              <p>Completed</p>
-            </div>
-            <div className={styles.highlightItem}>
-              <h3>5+ Technologies</h3>
-              <p>Mastered</p>
-            </div>
+            
+            <a href="#" className={styles.btnPrimary}>Download CV</a>
           </div>
         </div>
       </div>
