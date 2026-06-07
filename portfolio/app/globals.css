@@ -13,6 +13,9 @@
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 20px;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Fira Sans Condensed', sans-serif;
+  --font-alt: 'LINE Seed JP', sans-serif;
 }
 
 /* =============================================================

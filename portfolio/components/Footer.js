@@ -8,13 +8,13 @@ export default function Footer() {
         <div className={styles.footerInner}>
           
           <div className={styles.footerCopy}>
-            © 2025 <span className={styles.accent}>Amrendra.dev</span> — Crafted with ♥ in India
+            © 2025 <span className={styles.accent}>Amrendra Projects</span> — Crafted with ♥ in India
           </div>
           
           <div className={styles.footerLinks}>
             <Link href="#home">Home</Link>
             <Link href="#about">About</Link>
-            <Link href="#projects">Portfolio</Link>
+            <Link href="#projects">Projects</Link>
             <Link href="#contact">Contact</Link>
           </div>
 

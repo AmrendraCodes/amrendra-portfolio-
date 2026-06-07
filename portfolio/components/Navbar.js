@@ -8,7 +8,7 @@ import styles from './Navbar.module.css';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#projects' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -57,7 +57,7 @@ export default function Navbar() {
         <div className={styles.navInner}>
           {/* Logo */}
           <Link href="/" className={styles.navBrand}>
-            <span className={styles.accent}>A</span>mrendra<span className={styles.accent}>.</span>dev
+            <span className={styles.accent}>A</span>mrendra <span className={styles.accent}>P</span>rojects
           </Link>
 
           {/* Desktop Links */}
