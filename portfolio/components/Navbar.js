@@ -47,7 +47,7 @@ export default function Navbar() {
 
   // Handle active link matching
   const isActive = (href) => {
-    if (href === '/') return activeSection === 'home' || pathname === '/';
+    if (href === '/') return activeSection === 'home';
     return activeSection === href.replace('#', '');
   };
 
