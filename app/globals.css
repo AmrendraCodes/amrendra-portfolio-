@@ -1,111 +1,57 @@
-/* =============================================================
-   DESIGN SYSTEM — CSS Custom Properties
-   ============================================================= */
-:root {
-  --bg: #111114;
-  --surface: #18181d;
-  --surface2: #1f1f26;
-  --accent: #e8274b;
-  --accent-hover: #ff5577;
-  --text: #f0eee8;
-  --muted: #888898;
-  --border: rgba(255, 255, 255, 0.07);
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #111114;
+  --color-surface: #18181d;
+  --color-surface-2: #1f1f26;
+  --color-accent: #e8274b;
+  --color-accent-hover: #ff5577;
+  --color-text: #f0eee8;
+  --color-muted: #888898;
+  --color-border: rgba(255, 255, 255, 0.07);
+  
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 20px;
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Fira Sans Condensed', sans-serif;
-  --font-alt: 'LINE Seed JP', sans-serif;
+  
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Fira Sans Condensed", sans-serif;
+  --font-alt: "LINE Seed JP", sans-serif;
 }
 
-/* =============================================================
-   RESET & BASE
-   ============================================================= */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-body), sans-serif;
-  font-weight: 400;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* =============================================================
-   UTILITIES & ANIMATIONS
-   ============================================================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Basic reset styles */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(232, 39, 75, 0.3);
   }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
