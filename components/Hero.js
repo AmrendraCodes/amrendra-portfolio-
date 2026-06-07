@@ -8,12 +8,12 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center pt-32 pb-16 relative overflow-hidden bg-bg" id="home">
       <div className="absolute -top-20 -right-24 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 w-full">
 
           {/* LEFT CONTENT */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -60,7 +60,7 @@ export default function Hero() {
           </motion.div>
 
           {/* RIGHT PHOTO */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -69,22 +69,6 @@ export default function Hero() {
             <div className="relative w-80 h-[420px] bg-surface-2 rounded-2xl border border-border overflow-hidden flex items-center justify-center">
               <Image src="/Profile photo.jpeg" alt="Amrendra Kumar" fill style={{ objectFit: 'cover' }} priority />
             </div>
-
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-              className="absolute top-4 -left-3 bg-accent text-white px-4 py-2 rounded-lg text-xs font-heading font-semibold shadow-[0_4px_16px_rgba(232,39,75,0.3)] whitespace-nowrap z-20"
-            >
-              UI/UX Expert
-            </motion.div>
-
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut', delay: 1.5 }}
-              className="absolute bottom-5 -right-4 bg-surface text-text border border-border px-4 py-2 rounded-lg text-xs font-heading font-semibold shadow-lg whitespace-nowrap flex items-center gap-2 z-20"
-            >
-              <span className="text-xl font-extrabold text-accent">5+</span> Years Experience
-            </motion.div>
           </motion.div>
 
         </div>
